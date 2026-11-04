@@ -1,5 +1,24 @@
 # Change log
 
+## Version 5 — Grow & explore · 2026-11-04
+
+- Built from latest main (`050d536`), adding independent `v5/` assets and a landing-page link to complete the five-version navigation. Preserved all files in `v1/` through `v4/`.
+- Added a compact live summary directly above the garden: challenge totals, flower types, plot counts, both visitor requirements and current counts, and completion checkmarks. Full instructions and progress bars remain in an expandable panel.
+- Reworked typography, contrast, spacing, and responsive layouts; phone flower controls remain available while scrolling within the garden. Buttons have at least 48px targets, keyboard focus has a contrasting outline, and arrow keys move between plots.
+- Added a labeled Planted/Replaced highlight on the most recently changed plot and brief feedback for newly completed challenges. Reduced-motion preferences disable animation while keeping labels, checkmarks, and highlights.
+- Added a native Reset confirmation dialog for nonempty gardens, with Keep my garden focused by default, Escape/cancel support, contained keyboard focus, and focus returned to Reset. Confirming clears this version’s saved garden.
+- Preserved browser saving, save validation and failure messages, individual replacement, and recalculated visitor/challenge progress. V5 has its own save key and does not modify older saves.
+
+### Version 5 validation
+
+- Passed JavaScript syntax and staged Git whitespace checks.
+- Passed local Chromium suites for all five versions under `/pollinator-garden/` at 320, 390, 768, and 1280 pixels, with phone touch and desktop keyboard input.
+- V5 checks cover save/restore, full-garden replacement, increasing/decreasing visitor and challenge progress, summary updates, version/browser isolation, invalid saves, blocked storage, and error-free page/resource loading.
+- Verified Reset cancellation and Escape preserve the save, confirmation clears it across reload, safe default focus, return focus, and Tab containment. Verified arrow navigation, visible focus, at least 48px visible button targets, no horizontal overflow, reduced-motion animation suppression with persistent action labels, expandable full goals, and all five landing-page links.
+- Measured first-plot position on an empty 390px-wide local viewport: v4 at 1290px, v5 at 888px (402px less scrolling). Inspected initial mobile/desktop layouts and the mobile confirmation dialog.
+- Preserved `v1/`–`v4/` and `REFLECTION.md` unchanged; no personal reflection or unreported user testing observations were added.
+- These checks used local Chromium, not physical devices or the live v5 Pages site. Final live testing remains pending merge/publication and user feedback.
+
 ## Version 4 — Save & replant · 2026-11-04
 
 - Responds to the user’s successful GitHub Pages test of version 3. Built from latest main (`1801aae`); added independent `v4/` assets and a landing-page link while preserving `v1/`, `v2/`, and `v3/`.
@@ -16,7 +35,7 @@
 - Verified partial and completed garden restore, exact flower positions, selected-flower restore, continued planting, replacement in a full garden, visitor and challenge progress increasing and decreasing, same-flower no-op, Reset followed by reload, replay, and independence from older versions and separate browser contexts.
 - Verified malformed/unsupported saves, blocked storage, playable fallback messages, 44px targets, no horizontal overflow, and no page/resource errors. Inspected mobile and desktop screenshots.
 - Passed v1, v2, and v3 browser regression suites; their files are unchanged from latest main.
-- These are local tests, not live Pages or physical-device tests. Version 4 live testing awaits merge/publication and user feedback.
+- These are local tests, not live Pages or physical-device tests. User subsequently tested version 4 on GitHub Pages: flowers remained after refresh, individual replacement worked, and the garden stayed empty after Reset and another refresh. Device/browser details were not provided.
 
 ## Version 3 — Garden challenges · 2026-11-04
 
@@ -77,6 +96,6 @@ These are local browser checks, not a live Pages deployment or physical-device t
 
 - User-reported GitHub Pages test: planting all three flower types and filling all nine plots worked; the bee reward appeared. Device/browser details were not provided.
 
-## Future rounds (proposals, not implemented)
+## Final live testing
 
-5. Final usability, accessibility, and educational refinements based on testing.
+Version 5 awaits final user testing on GitHub Pages. No further revision is being built.
