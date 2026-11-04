@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Save & Replant — Build a Pollinator Garden v4</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <a class="back" href="../">← All versions</a>
+      <p class="eyebrow">Version 4 · Save & replant</p>
+      <h1>Your garden. Ready to return.</h1>
+      <p class="intro">Choose a flower, then select any plot to plant or replace. Progress follows your current flowers.</p>
+    </header>
+    <noscript><p>This game needs JavaScript. Enable it in your browser to plant flowers.</p></noscript>
+    <section class="challenges" aria-labelledby="challenges-heading">
+      <h2 id="challenges-heading">Three challenges <span id="challenge-count">0 / 3 complete</span></h2>
+      <p class="challenge-intro">One garden, shared progress. Reset clears every goal.</p>
+      <div class="challenge-cards">
+        <article class="challenge-card" id="mix-card" aria-labelledby="mix-heading">
+          <h3 id="mix-heading">Flower sampler</h3><p>Plant at least 1 of each flower type.</p>
+          <label for="mix-progress">Flower types: <span id="mix-count">0 / 3</span></label>
+          <progress id="mix-progress" value="0" max="3">0 of 3</progress>
+          <p class="challenge-state" id="mix-state">In progress</p>
+        </article>
+        <article class="challenge-card" id="welcome-card" aria-labelledby="welcome-heading">
+          <h3 id="welcome-heading">Welcome both visitors</h3><p>Meet the bee and butterfly goals below.</p>
+          <label for="welcome-progress">Visitors: <span id="welcome-count">0 / 2</span></label>
+          <progress id="welcome-progress" value="0" max="2">0 of 2</progress>
+          <p class="challenge-state" id="welcome-state">In progress</p>
+        </article>
+        <article class="challenge-card" id="nine-card" aria-labelledby="nine-heading">
+          <h3 id="nine-heading">Nine blooms</h3><p>Fill all 9 plots with any flower mix.</p>
+          <label for="nine-progress">Plots: <span id="nine-count">0 / 9</span></label>
+          <progress id="nine-progress" value="0" max="9">0 of 9</progress>
+          <p class="challenge-state" id="nine-state">In progress</p>
+        </article>
+      </div>
+
+    </section>
+    <div class="goals">        <section class="visitors" aria-labelledby="visitors-heading">
+          <h2 id="visitors-heading">Visitor goals <span id="visitor-count">0 / 2 arrived</span></h2>
+
+          <div class="visitor-cards">
+            <article class="visitor-card" id="bee-card" aria-labelledby="bee-heading">
+              <h3 id="bee-heading"><span aria-hidden="true">🐝</span> Bee</h3>
+              <p>Plant <strong>3 coneflowers or black-eyed Susans</strong> in any combination.</p>
+              <label for="bee-progress">Bee flowers: <span id="bee-count">0 / 3</span></label>
+              <progress id="bee-progress" max="3" value="0">0 of 3</progress>
+              <p class="arrival" id="bee-arrival">Not here yet</p>
+            </article>
+            <article class="visitor-card" id="butterfly-card" aria-labelledby="butterfly-heading">
+              <h3 id="butterfly-heading"><span aria-hidden="true">🦋</span> Butterfly</h3>
+              <p>Plant <strong>2 bee balms AND 1 coneflower</strong>.</p>
+              <label for="balm-progress">Bee balm: <span id="balm-count">0 / 2</span></label>
+              <progress id="balm-progress" max="2" value="0">0 of 2</progress>
+              <label for="cone-progress">Coneflower: <span id="cone-count">0 / 1</span></label>
+              <progress id="cone-progress" max="1" value="0">0 of 1</progress>
+              <p class="arrival" id="butterfly-arrival">Not here yet</p>
+            </article>
+          </div>
+        </section>    </div>
+    <p class="rules-note"><strong>Simplified game rules:</strong> these flower counts unlock visitors in this game. They are not real-world planting requirements.</p>
+    <aside class="save-note" aria-label="Browser saving">
+      <p><strong>Automatic saving:</strong> this garden belongs to the current browser and this site. It does not sync to other browsers or devices. Clearing browser data removes it; private browsing may discard it.</p>
+      <p id="save-status" role="status" aria-live="polite">Your changes will save here automatically.</p>
+    </aside>
+    <div class="game-layout">
+      <section class="plant-panel" aria-labelledby="flower-heading">
+        <h2 id="flower-heading"><span class="step">1</span> Choose a flower</h2>
+        <p>Goals are above. Choose your flower below.</p>
+        <div class="flower-choices" role="group" aria-label="Flower choices">
+          <button class="flower-choice" type="button" data-flower="coneflower" aria-pressed="true"><span class="flower-icon purple" aria-hidden="true">✿</span><span><strong>Coneflower</strong><small>Bee + butterfly goal</small></span><span class="choice-mark" aria-hidden="true">✓</span></button>
+          <button class="flower-choice" type="button" data-flower="susan" aria-pressed="false"><span class="flower-icon yellow" aria-hidden="true">✿</span><span><strong>Black-eyed Susan</strong><small>Bee goal</small></span><span class="choice-mark" aria-hidden="true">✓</span></button>
+          <button class="flower-choice" type="button" data-flower="balm" aria-pressed="false"><span class="flower-icon pink" aria-hidden="true">✺</span><span><strong>Bee balm</strong><small>Butterfly goal</small></span><span class="choice-mark" aria-hidden="true">✓</span></button>
+        </div>
+        <p id="selection" class="selection">Ready to plant or replace: Coneflower</p>
+        <p class="tip">To replace one flower, choose a different flower, then select its planted plot. Visitors and challenges update when goals change.</p>
+      </section>
+      <section class="garden-panel" aria-labelledby="garden-heading">
+        <div class="garden-heading"><h2 id="garden-heading"><span class="step">2</span> Plant or replace</h2><span id="counter">0 / 9 planted</span></div>
+        <div id="garden" class="garden" role="group" aria-label="Nine garden plots"></div>
+        <div class="garden-footer"><p id="status" role="status" aria-live="polite" aria-atomic="true">Your garden is ready. Follow the goals above.</p><button id="reset" class="reset" type="button">Reset garden</button></div>
+
+      </section>
+    </div>
+      <p class="plan-tip">Try this mix: 2 coneflowers, 1 black-eyed Susan, 2 bee balms, then any 4 flowers. All three challenges fit in 9 plots.</p>
+    <section class="nature-note" aria-labelledby="nature-heading">
+      <p class="eyebrow">Beyond the game</p>
+      <h2 id="nature-heading">Real ecological facts</h2>
+      <p>Bees visit flowers for nectar and pollen. Adult butterflies drink nectar from many kinds of flowers. Both can transfer pollen between flowers as they feed.</p>
+      <p>A real garden does not guarantee visitors after an exact flower count. Visits depend on local species, season, weather, and habitat. Butterflies also need suitable host plants for their caterpillars; nectar flowers alone do not support their whole life cycle.</p>
+      <p>Learn more: <a href="https://www.fs.usda.gov/wildflowers/pollinators/animals/bees.shtml">US Forest Service: bees</a> · <a href="https://www.fs.usda.gov/wildflowers/pollinators/animals/butterflies.shtml">butterflies</a>.</p>
+    </section>
+    <p class="footnote">No timer. Experiment with flower mixes. · Reset clears your garden and its saved progress.</p>
+  </main>
+</body>
+</html>
