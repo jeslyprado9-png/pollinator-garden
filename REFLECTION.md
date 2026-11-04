@@ -21,13 +21,24 @@ Use your own observations and words. Keep a short entry after testing each revis
 - Design decisions: independent goals for bee and butterfly; show both parts of the butterfly condition; label numeric thresholds as game rules; preserve version 1 for comparison.
 - GitHub Pages test date and deployed commit:
 - Device/browser tested:
+- Live test result reported by user: both visitors arrived correctly, and Reset cleared the garden and visitor progress. Version 2 is merged and published.
 - Did each visitor arrive only when its conditions were met?
 - Were progress and the distinction between game rules and ecological facts clear?
 - Was resetting understandable when a full garden missed a goal?
 - What I learned from reviewing or changing the generated code:
 - Feedback and requested improvements for version 3:
 
-## Versions 3–5
+## Version 3 — Garden challenges
+
+- Feedback used: both version 2 visitors and Reset worked live; player requested three short challenges, visible progress, and goals before planting with less scrolling.
+- Design decisions: three compatible challenges share one nine-plot garden, with all instructions above planting; preserve versions 1 and 2.
+- GitHub Pages test date and deployed commit:
+- Device/browser tested:
+- Could all challenges be completed within nine plots?
+- Were the instructions visible early enough, and was Reset clear?
+- Problems, lessons learned, and requested improvements:
+
+## Versions 4–5
 
 For each revision, record the goal, feedback that motivated it, meaningful changes, deployed commit, Pages test results, problems solved, and lessons learned. Do not report planned or unrun checks as passed.
 
