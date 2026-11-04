@@ -9,13 +9,25 @@ Use your own observations and words. Keep a short entry after testing each revis
 - Design decision: use tap/click planting instead of drag-and-drop to support phones and keyboard input. Defer saving and complex pollinator behavior.
 - GitHub Pages test date and deployed commit:
 - Device/browser tested:
-- What worked:
+- What worked: user reported that all three flowers could be planted, all nine plots could be filled, and the bee reward appeared on the live website.
 - What was confusing or failed:
 - Feedback from another player:
 - What I learned from reviewing or changing the generated code:
 - Requested improvements for version 2:
 
-## Versions 2–5
+## Version 2 — Welcome pollinators
+
+- Feedback used: the version 1 planting/completion loop worked live; the next request was to make flower choices matter with clear visitor conditions and progress.
+- Design decisions: independent goals for bee and butterfly; show both parts of the butterfly condition; label numeric thresholds as game rules; preserve version 1 for comparison.
+- GitHub Pages test date and deployed commit:
+- Device/browser tested:
+- Did each visitor arrive only when its conditions were met?
+- Were progress and the distinction between game rules and ecological facts clear?
+- Was resetting understandable when a full garden missed a goal?
+- What I learned from reviewing or changing the generated code:
+- Feedback and requested improvements for version 3:
+
+## Versions 3–5
 
 For each revision, record the goal, feedback that motivated it, meaningful changes, deployed commit, Pages test results, problems solved, and lessons learned. Do not report planned or unrun checks as passed.
 
