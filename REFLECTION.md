@@ -34,11 +34,23 @@ Use your own observations and words. Keep a short entry after testing each revis
 - Design decisions: three compatible challenges share one nine-plot garden, with all instructions above planting; preserve versions 1 and 2.
 - GitHub Pages test date and deployed commit:
 - Device/browser tested:
+- User-reported live test: all three challenges completed within nine plots, both visitors arrived, Reset cleared the garden, and goals appeared above planting.
 - Could all challenges be completed within nine plots?
 - Were the instructions visible early enough, and was Reset clear?
 - Problems, lessons learned, and requested improvements:
 
-## Versions 4–5
+## Version 4 — Save & replant
+
+- Feedback used: version 3 worked live; the next approved round adds browser saving and individual replacement.
+- Design decisions: store only flower positions and selection, recalculate every goal from current flowers, isolate the save to v4, and explain browser storage limits.
+- GitHub Pages test date and deployed commit:
+- Device/browser tested:
+- Did plants restore in the same positions after reloading?
+- Did replacing flowers increase and decrease visitor and challenge progress correctly?
+- Did Reset keep the garden empty after reloading?
+- Problems, lessons learned, and requested improvements:
+
+## Version 5
 
 For each revision, record the goal, feedback that motivated it, meaningful changes, deployed commit, Pages test results, problems solved, and lessons learned. Do not report planned or unrun checks as passed.
 

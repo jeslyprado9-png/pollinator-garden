@@ -1,5 +1,23 @@
 # Change log
 
+## Version 4 — Save & replant · 2026-11-04
+
+- Responds to the user’s successful GitHub Pages test of version 3. Built from latest main (`1801aae`); added independent `v4/` assets and a landing-page link while preserving `v1/`, `v2/`, and `v3/`.
+- Automatically saves nine plot positions and the selected flower in browser local storage, using a version-specific key; restores valid saves on reload. Visitor and challenge progress are recalculated from flowers rather than trusted from saved counters.
+- Choose a flower, then select an occupied plot to replace only that flower, including in full gardens. Counts stay capped and planted totals stay accurate. Visitors and challenges can lose or regain completion when flowers change, with accessible status updates.
+- Explains that saves belong to the current browser and site, do not sync across browsers/devices, and can be lost when site data is cleared or private browsing ends.
+- Reset clears the version 4 save and all progress without removing unrelated browser data. Invalid saves and blocked/full storage show honest messages while the game stays playable.
+- Version 5 remains deferred pending live version 4 testing feedback.
+
+### Version 4 validation
+
+- Passed JavaScript syntax and Git whitespace checks.
+- Passed local Chromium tests under `/pollinator-garden/` at 320, 390, 768, and 1280 pixels, with mobile touch and desktop keyboard input.
+- Verified partial and completed garden restore, exact flower positions, selected-flower restore, continued planting, replacement in a full garden, visitor and challenge progress increasing and decreasing, same-flower no-op, Reset followed by reload, replay, and independence from older versions and separate browser contexts.
+- Verified malformed/unsupported saves, blocked storage, playable fallback messages, 44px targets, no horizontal overflow, and no page/resource errors. Inspected mobile and desktop screenshots.
+- Passed v1, v2, and v3 browser regression suites; their files are unchanged from latest main.
+- These are local tests, not live Pages or physical-device tests. Version 4 live testing awaits merge/publication and user feedback.
+
 ## Version 3 — Garden challenges · 2026-11-04
 
 - Responds to successful live version 2 testing and the request for short challenges and less scrolling. No earlier v3 branch, PR, or local implementation was found.
@@ -16,7 +34,7 @@
 - Verified challenge progress/completion, shared nine-plot completion, full gardens with unmet goals, reset/replay, reload, occupied-plot protection, visitor thresholds and both arrival orders, progress caps, navigation, 44px button targets, no horizontal overflow, and no page/resource errors.
 - Verified all challenge instructions and visitor goals precede planting controls and fit within the first 900 vertical pixels at all four widths. Inspected mobile and desktop screenshots.
 - Passed version 1 and version 2 browser regression suites; their assets are unchanged from latest main.
-- Checks used a local static server, not physical devices or live Pages. Version 3 GitHub Pages testing awaits merge/publication and user feedback.
+- Checks used a local static server, not physical devices or live Pages. User subsequently tested version 3 on GitHub Pages: all three challenges completed within nine plots, both visitors arrived, Reset cleared the garden, and goals appeared above planting. Device/browser details were not provided.
 
 ## Version 2 — Welcome pollinators · 2026-11-04
 
@@ -61,5 +79,4 @@ These are local browser checks, not a live Pages deployment or physical-device t
 
 ## Future rounds (proposals, not implemented)
 
-4. Local saving and plant replacement, adjusted using version 3 feedback.
 5. Final usability, accessibility, and educational refinements based on testing.

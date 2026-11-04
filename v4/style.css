@@ -1,0 +1,148 @@
+:root { color-scheme: light; --ink: #243b2d; --green: #315c36; --muted: #526453; --cream: #f7f6ee; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--cream); color: var(--ink); font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.5; }
+main { width: min(1120px, 100%); margin: auto; padding: 32px 28px; }
+a { color: var(--green); text-underline-offset: 4px; }
+.back { font-size: .9rem; }
+.eyebrow { margin: 28px 0 10px; font-size: .75rem; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; color: var(--green); }
+h1 { font-family: Georgia, serif; font-weight: 400; font-size: clamp(2.7rem, 6vw, 4.5rem); line-height: 1.04; letter-spacing: -.04em; margin: 0 0 18px; }
+.intro { font-size: 1.08rem; color: var(--muted); margin-bottom: 30px; }
+h2 { font-size: 1.08rem; margin: 0; }
+h3 { margin: 0 0 4px; font-family: Georgia, serif; font-size: 1.4rem; }
+button { font: inherit; cursor: pointer; touch-action: manipulation; }
+button, a { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid #235fc0; outline-offset: 4px; }
+.game-layout { display: grid; grid-template-columns: 310px minmax(0, 1fr); gap: 34px; align-items: start; }
+.step { display: inline-grid; place-items: center; background: #e4e9d9; width: 27px; height: 27px; border-radius: 50%; margin-right: 5px; font-size: .85rem; }
+.plant-panel > p { font-size: .9rem; color: var(--muted); }
+.flower-choices { display: grid; gap: 10px; margin-top: 18px; }
+.flower-choice { display: flex; align-items: center; gap: 12px; text-align: left; padding: 13px; background: #fffef8; border: 2px solid #d8ddcf; border-radius: 14px; color: var(--ink); min-height: 80px; }
+.flower-choice[aria-pressed="true"] { border-color: var(--green); background: #eaf0df; }
+.flower-choice strong { display: block; font-size: .95rem; }
+.flower-choice small { color: var(--muted); }
+.choice-mark { margin-left: auto; visibility: hidden; font-weight: bold; }
+[aria-pressed="true"] .choice-mark { visibility: visible; }
+.flower-icon { font-size: 2.6rem; line-height: 1; }
+.purple { color: #81419a; } .yellow { color: #956200; } .pink { color: #b33464; }
+.selection { font-weight: 650; }
+.tip { border-top: 1px solid #d8ddcf; padding-top: 18px; }
+.garden-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+#counter { font-size: .8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.garden { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 18px; background: #dce5ce; border: 1px solid #c6d3b6; border-radius: 22px; }
+.plot { min-height: 128px; padding: 10px 4px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 4px; border: 1px dashed #967c60; border-radius: 12px; background: #f1e4d1; color: #654d33; }
+.plot:hover:not(.planted) { background: #f9eddb; border-style: solid; }
+.empty-mark { font-size: 1.8rem; line-height: 1.2; }
+.plot-label { font-size: .75rem; line-height: 1.2; }
+.planted { background: #fffaf0; border: 1px solid #bccaa7; color: var(--ink); cursor: default; }
+.bloom { font-size: 3.7rem; line-height: 1; }
+.garden-footer { display: flex; align-items: start; gap: 16px; justify-content: space-between; margin-top: 16px; }
+#status { font-size: .9rem; margin: 0; }
+.reset { flex-shrink: 0; padding: 11px 14px; border: 1px solid #9ba98d; background: transparent; border-radius: 10px; color: var(--ink); min-height: 44px; }
+.reset:hover { background: #e4e9d9; }
+.visitor { margin-top: 20px; padding: 20px; display: flex; align-items: center; gap: 16px; border-radius: 16px; background: #f6e8ac; }
+.visitor[hidden] { display: none; }
+.visitor p { margin: 0; font-size: .9rem; }
+.bee { font-size: 2.8rem; }
+.footnote { margin: 32px 0 14px; color: var(--muted); font-size: .8rem; }
+.home { max-width: 800px; padding-top: 60px; }
+.revision { padding: 28px; border: 1px solid #c6d3b6; border-radius: 20px; background: #eaf0df; margin-top: 32px; }
+.badge { font-size: .75rem; font-weight: 700; color: var(--green); }
+.revision h2 { font-family: Georgia, serif; font-size: 1.8rem; margin-top: 14px; font-weight: 400; }
+.primary { display: inline-flex; align-items: center; gap: 32px; background: var(--green); color: white; padding: 14px 22px; border-radius: 10px; text-decoration: none; margin-top: 10px; }
+@media (max-width: 760px) {
+  main { padding: 22px 18px; }
+  .game-layout { grid-template-columns: 1fr; gap: 24px; }
+  .flower-choices { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .flower-choice { flex-direction: column; text-align: center; padding: 10px 5px; gap: 6px; position: relative; }
+  .flower-choice strong { font-size: .8rem; }
+  .flower-choice small { display: none; }
+  .choice-mark { position: absolute; right: 5px; top: 2px; }
+  .tip { margin-bottom: 0; }
+  .garden { padding: 12px; gap: 8px; }
+  .plot { min-height: 108px; }
+  .bloom { font-size: 3rem; }
+  .garden-footer { flex-direction: column; gap: 12px; }
+  .home { padding-top: 36px; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; } }
+/* Visitor styles are local to this version. */
+.visitors { margin-top: 26px; }
+#visitors-heading { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+#visitor-count { font-size: .8rem; font-weight: 500; color: var(--muted); }
+.rules-note { font-size: .9rem; color: var(--muted); }
+.visitor-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.visitor-card { padding: 18px; border: 2px solid #d8ddcf; border-radius: 16px; background: #fffef8; }
+.visitor-card p { font-size: .9rem; }
+.visitor-card label { display: block; font-size: .85rem; }
+.visitor-card progress { display: block; width: 100%; height: 14px; margin: 6px 0 12px; accent-color: var(--green); }
+.visitor-card.arrived { background: #f6e8ac; border-color: #947328; }
+.arrival { font-weight: 700; margin-bottom: 0; }
+.nature-note { margin-top: 32px; padding: 22px; border: 1px solid #c6d3b6; border-radius: 16px; }
+.nature-note .eyebrow { margin-top: 0; }
+.nature-note p { max-width: 78ch; }
+.flower-choice small { display: block; font-size: .75rem; }
+@media (max-width: 760px) {
+  .flower-choice small { font-size: .7rem; line-height: 1.3; }
+}
+@media (max-width: 420px) {
+  .visitor-cards { grid-template-columns: 1fr; }
+}
+
+/* Compact goals precede planting on every screen size. */
+header .eyebrow { margin-top: 12px; }
+h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 8px; }
+.intro { margin: 8px 0 16px; font-size: .95rem; }
+.challenges { padding: 14px; border: 1px solid #c6d3b6; border-radius: 16px; background: #eaf0df; }
+#challenges-heading { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
+#challenge-count { font-size: .85rem; }
+.challenge-intro, .plan-tip { font-size: .8rem; margin: 6px 0 10px; }
+.plan-tip { margin: 10px 0 0; }
+.challenge-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.challenge-card { padding: 10px; border: 2px solid #d8ddcf; border-radius: 12px; background: #fffef8; }
+.challenge-card h3 { font-family: inherit; font-size: .95rem; }
+.challenge-card p { font-size: .8rem; margin: 4px 0; }
+.challenge-card label { font-size: .8rem; }
+.challenge-card progress { display: block; width: 100%; height: 12px; accent-color: var(--green); }
+.challenge-state { font-weight: 700; }
+.challenge-card.complete { background: #f6e8ac; border-color: #947328; }
+.visitors { margin-top: 12px; }
+.visitor-card { padding: 10px; }
+.visitor-card h3 { font-size: 1.1rem; }
+.visitor-card p { margin: 4px 0; font-size: .8rem; }
+.visitor-card label { font-size: .8rem; }
+.visitor-card progress { height: 10px; margin: 2px 0 4px; }
+.rules-note { font-size: .75rem; margin: 8px 0 14px; }
+.flower-choices { margin-top: 8px; }
+.plant-panel > p { margin: 8px 0; }
+.tip { padding-top: 8px; }
+@media (max-width: 760px) {
+  main { padding: 14px 12px; }
+  .challenge-cards { grid-template-columns: 1fr; gap: 6px; }
+  .challenge-card { display: grid; grid-template-columns: minmax(0, 1fr) 94px; column-gap: 8px; padding: 6px 8px; }
+  .challenge-card h3, .challenge-card > p:first-of-type { grid-column: 1; }
+  .challenge-card label { grid-column: 2; grid-row: 1; }
+  .challenge-card progress { grid-column: 2; grid-row: 2; }
+  .challenge-card .challenge-state { grid-column: 2; grid-row: 3; font-size: .75rem; }
+  .challenge-card p { margin: 0; }
+  .visitor-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+  .game-layout { gap: 14px; }
+  .flower-choice small { display: none; }
+  .flower-choice { min-height: 70px; }
+  .selection { margin-bottom: 4px; }
+  .plot { min-height: 90px; }
+}
+@media (max-width: 760px) {
+  .challenge-card h3 { grid-row: 1; }
+  .challenge-card > p:first-of-type { grid-row: 2 / span 2; }
+  .challenge-card label { white-space: nowrap; font-size: .75rem; }
+  .challenge-card { grid-template-columns: minmax(0, 1fr) 100px; }
+  .challenge-intro { margin-bottom: 6px; }
+  .plan-tip { font-size: .75rem; line-height: 1.4; }
+}
+
+/* Planted plots remain actionable for individual replacement. */
+.planted { cursor: pointer; }
+.plot:hover { border-style: solid; border-color: var(--green); }
+.save-note { font-size: .8rem; padding: 10px 12px; background: #eaf0df; border: 1px solid #c6d3b6; border-radius: 12px; margin: 0 0 14px; }
+.save-note p { margin: 0; }
+#save-status { margin-top: 4px; font-weight: 650; }
