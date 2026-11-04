@@ -1,0 +1,114 @@
+:root { color-scheme: light; --ink: #243b2d; --green: #315c36; --muted: #4a5f4c; --cream: #f7f6ee; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--cream); color: var(--ink); font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.5; }
+main { width: min(1100px, 100%); margin: auto; padding: 24px; }
+a { color: var(--green); text-underline-offset: 4px; }
+a.back { display: inline-flex; align-items: center; min-height: 44px; }
+.eyebrow { margin: 8px 0; font-size: .8rem; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; color: var(--green); }
+h1 { font-family: Georgia, serif; font-weight: 400; font-size: clamp(2rem, 4.5vw, 3.4rem); line-height: 1.1; letter-spacing: -.03em; margin: 0 0 10px; }
+h2 { font-size: 1.1rem; margin: 0; }
+h3 { font-size: 1rem; margin: 0; }
+.intro { margin: 0 0 14px; color: var(--muted); max-width: 70ch; }
+button, summary { font: inherit; cursor: pointer; touch-action: manipulation; }
+button { color: var(--ink); min-width: 48px; min-height: 48px; }
+:focus-visible { outline: 3px solid #1557b0; outline-offset: 4px; box-shadow: 0 0 0 6px #fffef8; }
+button, summary, a { scroll-margin-block: 190px 24px; }
+.goal-details { border: 1px solid #b5c5a8; background: #fffef8; border-radius: 14px; margin: 0 0 18px; }
+.goal-details > summary { padding: 12px 16px; min-height: 48px; font-weight: 650; }
+.goal-details[open] > summary { border-bottom: 1px solid #d8ddcf; }
+.challenges, .goals { padding: 12px; }
+#challenges-heading, #visitors-heading { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+#challenge-count, #visitor-count { font-size: .9rem; }
+.challenge-intro, .rules-note { font-size: .9rem; }
+.rules-note { margin: 0; padding: 0 12px 14px; }
+.challenge-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.visitor-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 8px; }
+.challenge-card, .visitor-card { border: 1px solid #c6d3b6; background: #f5f6ed; border-radius: 12px; padding: 12px; }
+.challenge-card p, .visitor-card p { margin: 6px 0; font-size: .9rem; }
+.challenge-card label, .visitor-card label { display: block; font-size: .9rem; }
+progress { display: block; width: 100%; height: 12px; accent-color: var(--green); margin: 6px 0; }
+.complete, .arrived { background: #f6e8ac; border-color: #947328; }
+.challenge-state, .arrival { font-weight: 700; }
+.complete .challenge-state::before { content: '✓ '; }
+.game-layout { display: grid; grid-template-columns: 270px minmax(0, 1fr); align-items: start; gap: 24px; }
+.plant-panel { position: sticky; top: 12px; padding: 14px; background: #fffef8; border: 1px solid #c6d3b6; border-radius: 16px; }
+.plant-panel > p { font-size: .9rem; margin: 8px 0; }
+.step { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #dce5ce; font-size: .85rem; }
+.flower-choices { display: grid; gap: 8px; }
+.flower-choice { display: flex; align-items: center; gap: 10px; background: #fffef8; border: 2px solid #c5cebc; border-radius: 12px; padding: 10px; text-align: left; }
+.flower-choice[aria-pressed='true'] { border-color: var(--green); background: #e4edd8; }
+.flower-choice strong { display: block; font-size: .95rem; }
+.flower-choice small { display: block; font-size: .8rem; }
+.choice-mark { visibility: hidden; margin-left: auto; font-weight: 700; }
+[aria-pressed='true'] .choice-mark { visibility: visible; }
+.flower-icon { font-size: 2.3rem; line-height: 1; }
+.purple { color: #81419a; } .yellow { color: #956200; } .pink { color: #b33464; }
+.selection { font-weight: 650; }
+.tip { padding-top: 8px; border-top: 1px solid #d8ddcf; }
+.garden-heading, .summary-heading { display: flex; justify-content: space-between; gap: 8px; align-items: center; flex-wrap: wrap; }
+#counter, #summary-total { font-size: .85rem; font-variant-numeric: tabular-nums; }
+.progress-summary { margin-top: 12px; padding: 12px; border: 1px solid #b5c5a8; border-radius: 14px; background: #eaf0df; }
+.summary-goals { list-style: none; padding: 0; margin: 8px 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.summary-goals li { border: 1px solid #bac8ac; padding: 8px; border-radius: 10px; background: #fffef8; font-size: .85rem; }
+.summary-goals strong, .summary-goals span { display: block; }
+.summary-goals .done { background: #f6e8ac; border-color: #947328; }
+.summary-goals .done strong::before { content: '✓ '; }
+.visitor-mini { margin: 8px 0 0; font-size: .9rem; }
+.summary-note { font-size: .8rem; margin: 6px 0 0; color: var(--muted); }
+.action-status { margin: 10px 0; padding: 10px 12px; background: #fffef8; border-left: 4px solid var(--green); border-radius: 4px 10px 10px 4px; min-height: 64px; font-size: .95rem; }
+.garden { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; padding: 14px; background: #dce5ce; border: 1px solid #bac8ac; border-radius: 18px; }
+.plot { position: relative; min-height: 128px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 12px 4px 20px; background: #f1e4d1; border: 1px dashed #8b7156; border-radius: 12px; }
+.empty-mark { font-size: 1.8rem; }
+.plot-label { font-size: .85rem; line-height: 1.3; }
+.planted { background: #fffaf0; border: 1px solid #9fad8d; }
+.bloom { font-size: 3.5rem; line-height: 1; }
+.plot[data-feedback] { border: 3px solid var(--green); }
+.plot[data-feedback]::after { content: attr(data-feedback); position: absolute; bottom: 3px; font-size: .7rem; font-weight: 700; color: var(--green); }
+@media (hover: hover) { .plot:hover, .flower-choice:hover { background: #f9eddb; border-color: var(--green); } }
+button:active { background: #e4edd8; }
+.celebrate { animation: bloom-in 400ms ease-out; }
+@keyframes bloom-in { 0% { transform: scale(.96); box-shadow: 0 0 0 4px #7d9f57; } 100% { transform: scale(1); box-shadow: 0 0 0 0 transparent; } }
+.garden-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; }
+.reset-hint { font-size: .85rem; margin: 0; color: var(--muted); }
+.reset, .dialog-actions button { border: 1px solid #8da17c; border-radius: 10px; background: #fffef8; padding: 10px 14px; }
+.save-note { margin-top: 20px; padding: 12px; border: 1px solid #c6d3b6; border-radius: 12px; font-size: .85rem; }
+.save-note p { margin: 0; }
+#save-status { font-weight: 650; margin-top: 6px; }
+.plan-tip, .footnote { font-size: .85rem; color: var(--muted); }
+.nature-note { margin-top: 24px; padding: 18px; border: 1px solid #c6d3b6; border-radius: 14px; }
+.nature-note p { max-width: 78ch; }
+dialog { color: var(--ink); background: #fffef8; border: 1px solid #8da17c; border-radius: 18px; padding: 24px; width: min(440px, calc(100% - 32px)); max-height: calc(100dvh - 32px); overflow-y: auto; }
+dialog::backdrop { background: rgb(20 40 25 / .65); }
+dialog h2 { font-size: 1.4rem; }
+.dialog-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.dialog-actions .danger { color: white; background: #823322; border-color: #823322; }
+@media (max-width: 760px) {
+  main { padding: 12px; }
+  h1 { font-size: 2rem; }
+  .game-layout { display: block; }
+  .plant-panel { top: 0; z-index: 2; padding: 8px; margin-bottom: 14px; border-radius: 0 0 12px 12px; box-shadow: 0 4px 12px rgb(36 59 45 / .1); }
+  .plant-panel h2 { font-size: 1rem; }
+  .plant-panel > p:not(.selection) { display: none; }
+  .plant-panel .selection { margin: 4px 0 0; font-size: .8rem; }
+  .flower-choices { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 6px; }
+  .flower-choice { position: relative; flex-direction: column; justify-content: center; text-align: center; padding: 6px 3px; gap: 3px; min-height: 84px; }
+  .flower-choice strong { font-size: .8rem; line-height: 1.3; }
+  .flower-choice small { display: none; }
+  .flower-icon { font-size: 1.7rem; }
+  .choice-mark { position: absolute; top: 0; right: 5px; }
+  .summary-goals { grid-template-columns: 1fr; gap: 4px; }
+  .summary-goals li { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0 8px; padding: 5px 8px; }
+  .summary-goals li span { font-size: .8rem; }
+  .visitor-mini { font-size: .85rem; }
+  .garden { padding: 8px; gap: 8px; }
+  .plot { min-height: 106px; }
+  .bloom { font-size: 2.8rem; }
+  .plot-label { font-size: .75rem; }
+  .garden-footer { align-items: start; }
+  .reset { flex-shrink: 0; }
+  .challenge-cards, .visitor-cards { grid-template-columns: 1fr; }
+  .dialog-actions { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
