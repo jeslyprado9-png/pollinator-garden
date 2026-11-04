@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plant a Garden — Build a Pollinator Garden v1</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <a class="back" href="../">← All versions</a>
+      <p class="eyebrow">Version 1 · Plant a garden</p>
+      <h1>Small garden.<br>Big welcome.</h1>
+      <p class="intro">Choose a flower, then select an empty plot.<br>Fill your garden to welcome a bee!</p>
+    </header>
+    <noscript><p>This game needs JavaScript. Enable it in your browser to plant flowers.</p></noscript>
+    <div class="game-layout">
+      <section class="plant-panel" aria-labelledby="flower-heading">
+        <h2 id="flower-heading"><span class="step">1</span> Choose a flower</h2>
+        <p>Every combination is a good garden.</p>
+        <div class="flower-choices" role="group" aria-label="Flower choices">
+          <button class="flower-choice" type="button" data-flower="coneflower" aria-pressed="true"><span class="flower-icon purple" aria-hidden="true">✿</span><span><strong>Coneflower</strong><small>Purple petals</small></span><span class="choice-mark" aria-hidden="true">✓</span></button>
+          <button class="flower-choice" type="button" data-flower="susan" aria-pressed="false"><span class="flower-icon yellow" aria-hidden="true">✿</span><span><strong>Black-eyed Susan</strong><small>Golden petals</small></span><span class="choice-mark" aria-hidden="true">✓</span></button>
+          <button class="flower-choice" type="button" data-flower="balm" aria-pressed="false"><span class="flower-icon pink" aria-hidden="true">✺</span><span><strong>Bee balm</strong><small>Pink blooms</small></span><span class="choice-mark" aria-hidden="true">✓</span></button>
+        </div>
+        <p id="selection" class="selection">Ready to plant: Coneflower</p>
+        <p class="tip">A tiny nature note: bees visit flowers for nectar and pollen. As they move between flowers, they can help plants make seeds.</p>
+      </section>
+      <section class="garden-panel" aria-labelledby="garden-heading">
+        <div class="garden-heading"><h2 id="garden-heading"><span class="step">2</span> Plant your garden</h2><span id="counter">0 / 9 planted</span></div>
+        <div id="garden" class="garden" role="group" aria-label="Nine garden plots"></div>
+        <div class="garden-footer"><p id="status" role="status" aria-live="polite" aria-atomic="true">Your garden is ready. Plant your first flower!</p><button id="reset" class="reset" type="button">Reset garden</button></div>
+        <div id="visitor" class="visitor" hidden><span class="bee" aria-hidden="true">🐝</span><div><h3>A bee stopped by!</h3><p>You filled your garden with flowers. Enjoy your little patch of nature, or reset to plant again.</p></div></div>
+      </section>
+    </div>
+    <p class="footnote">No timer. No wrong choices. Just room to grow. · Progress lasts until you reload or reset.</p>
+  </main>
+</body>
+</html>
